@@ -6,6 +6,7 @@ interface IRoom {
   price: number;
   bed: number;
   maxPeople: number;
+  status?: "free" | "busy";
   service: IService[];
   utilities?: string[];
 }
