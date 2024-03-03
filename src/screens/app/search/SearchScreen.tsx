@@ -72,8 +72,6 @@ const SearchScreen = () => {
 export default SearchScreen;
 
 const styles = StyleSheet.create({
-  listTypeRoom: {
-    marginHorizontal: -theme.size[4],
-  },
+  listTypeRoom: {},
   roomsArea: {},
 });

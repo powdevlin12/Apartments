@@ -78,13 +78,17 @@ const ImageCarousel = ({ images }: ImageCarouselProp) => {
         style={[styles.arrow, styles.arrowLeft]}
         onPress={handlePressLeft}
       >
-        <AntDesign name="arrowleft" size={24} color={theme.colors.secondary} />
+        <AntDesign name="arrowleft" size={24} color={theme.colors.whiteLight} />
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.arrow, styles.arrowRight]}
         onPress={handlePressRight}
       >
-        <AntDesign name="arrowright" size={24} color={theme.colors.secondary} />
+        <AntDesign
+          name="arrowright"
+          size={24}
+          color={theme.colors.whiteLight}
+        />
       </TouchableOpacity>
     </View>
   );

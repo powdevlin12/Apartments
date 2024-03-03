@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     gap: theme.size[2],
     borderWidth: 1,
     borderRadius: theme.border.medium,
-    borderColor: "#f4f4f4",
+    borderColor: theme.colors.whiteLight,
     paddingVertical: theme.size[1],
     paddingHorizontal: theme.size[3],
     marginHorizontal: theme.size[3],

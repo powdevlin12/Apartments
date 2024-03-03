@@ -6,4 +6,5 @@ export const colors = {
   secondary: "#494949",
   third: "#fea676",
   white: "#ffffff",
+  whiteLight: "#f4f4f4",
 };
