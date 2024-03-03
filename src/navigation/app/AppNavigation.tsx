@@ -6,6 +6,7 @@ import { SavedScreen } from "../../screens/app/saved";
 import { SearchScreen } from "../../screens/app/search";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import theme from "../../constants/theme";
+import { TextComponent } from "../../components/text";
 
 type AppStackParamList = {
   Search: undefined;
@@ -32,7 +33,13 @@ const AppNavigation = () => {
           tabBarIcon: ({ focused }) => (
             <FontAwesome name="search" size={24} color={colorIcon(focused)} />
           ),
-          tabBarLabelStyle,
+          tabBarLabel: ({ focused }) => (
+            <TextComponent
+              text="Search"
+              color={focused ? theme.colors.primary : theme.colors.secondary}
+              size={theme.fontSize.note}
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -47,7 +54,13 @@ const AppNavigation = () => {
               color={colorIcon(focused)}
             />
           ),
-          tabBarLabelStyle,
+          tabBarLabel: ({ focused }) => (
+            <TextComponent
+              text="Saved"
+              color={focused ? theme.colors.primary : theme.colors.secondary}
+              size={theme.fontSize.note}
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -62,7 +75,13 @@ const AppNavigation = () => {
               color={colorIcon(focused)}
             />
           ),
-          tabBarLabelStyle,
+          tabBarLabel: ({ focused }) => (
+            <TextComponent
+              text="Account"
+              color={focused ? theme.colors.primary : theme.colors.secondary}
+              size={theme.fontSize.note}
+            />
+          ),
         }}
       />
     </Tab.Navigator>
