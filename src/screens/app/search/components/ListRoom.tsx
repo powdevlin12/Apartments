@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { IRoom } from "../../../../../models";
+import { IRoom } from "../../../../models";
 import { Room } from "../../../../components/room";
 
 interface ListRoomProps {

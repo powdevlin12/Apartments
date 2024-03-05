@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { StyleSheet } from "react-native";
-import AppNavigation from "./src/navigation/app/AppNavigation";
 import { useFonts } from "expo-font";
+import AppNavigation from "./src/navigation/app/AppNavigation";
 
 export default function App() {
   const [fontsLoaded] = useFonts({

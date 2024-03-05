@@ -1,11 +1,12 @@
 import { FlatList, ListRenderItem, StyleSheet, Text, View } from "react-native";
 import React, { useCallback } from "react";
-import { TypeRoom } from "../../../../../models";
+import { TypeRoom } from "../../../../models";
 import theme from "../../../../constants/theme";
 import { Badge } from "../../../../components/badge";
+import { capitalizeFirstLetter } from "@/utils";
 
 interface ListTypeRoomProps {
-  listTypeRoom: TypeRoom[];
+  listTypeRoom: TypeRoom[] | undefined;
   setActiveType: React.Dispatch<React.SetStateAction<string>>;
   activeType: string;
 }
@@ -17,7 +18,7 @@ const ListTypeRoom = ({
   const renderItem: ListRenderItem<TypeRoom> = useCallback(
     ({ item }) => (
       <Badge
-        title={item.name}
+        title={capitalizeFirstLetter(item.name)}
         active={item.name === activeType}
         setActiveType={setActiveType}
       />

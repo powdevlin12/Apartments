@@ -1,18 +1,13 @@
-import React, { useState } from "react";
+import { Container, SpaceComponent } from "@/components/layout";
+import { IRoom, TypeRoom } from "@/models";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { IRoom, TypeRoom } from "../../../../models";
-import { Container, SpaceComponent } from "../../../components/layout";
-import theme from "../../../constants/theme";
-import ListRoom from "./components/ListRoom";
 import ListTypeRoom from "./components/ListTypeRoom";
-
-const listTypeRoom: TypeRoom[] = [
-  { name: "Standard" },
-  { name: "Superior" },
-  { name: "FamilyRoom" },
-  { name: "Delux" },
-  { name: "Luxury" },
-];
+import theme from "@/constants/theme";
+import ListRoom from "./components/ListRoom";
+import { useGet } from "@/hooks/helpers/useGet";
+import { GET_ALL_TYPE_ROOM } from "@/constants/keySwr";
+import { typeApartmentService } from "@/services";
 
 const listRooms: IRoom[] = [
   {
@@ -51,7 +46,23 @@ const listRooms: IRoom[] = [
 ];
 
 const SearchScreen = () => {
-  const [activeType, setActiveType] = useState(listTypeRoom[1].name);
+  const { data: listTypeRoom, isLoading } = useGet<TypeRoom[]>(
+    GET_ALL_TYPE_ROOM,
+    typeApartmentService.getAll
+  );
+
+  const [activeType, setActiveType] = useState<string>("");
+
+  if (isLoading) {
+    return null;
+  }
+
+  useEffect(() => {
+    if (listTypeRoom) {
+      setActiveType(listTypeRoom[0].name);
+    }
+  }, [listTypeRoom]);
+
   return (
     <Container>
       <View style={styles.listTypeRoom}>

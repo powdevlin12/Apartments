@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { IRoom } from "../../../models";
+import { IRoom } from "../../models";
 import { ImageCarousel } from "../image-carousel";
 import TitleComponent from "../text/TitleComponent";
 import { RowComponent, SpaceComponent } from "../layout";
