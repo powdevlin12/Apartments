@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
+import { StyleSheet, View } from "react-native";
+import theme from "../../constants/theme";
 import { IRoom } from "../../models";
 import { ImageCarousel } from "../image-carousel";
-import TitleComponent from "../text/TitleComponent";
-import { RowComponent, SpaceComponent } from "../layout";
-import theme from "../../constants/theme";
-import { Ionicons } from "@expo/vector-icons";
+import { RowComponent } from "../layout";
 import { TextComponent } from "../text";
+import TitleComponent from "../text/TitleComponent";
 
 interface RoomProp {
   room: IRoom;
@@ -16,7 +16,15 @@ const Room = ({ room }: RoomProp) => {
   return (
     <View style={styles.container}>
       <View style={styles.imageCarouselArea}>
-        <ImageCarousel images={room.image} />
+        <ImageCarousel
+          images={
+            room.images.length > 0
+              ? room.images
+              : [
+                  "https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/65045f093c166fdddb4a94a5_x-65045f0266217.webp",
+                ]
+          }
+        />
       </View>
       <RowComponent justifyContent="space-between" styles={styles.roomInfoArea}>
         <TitleComponent text={room.name} />
@@ -32,7 +40,7 @@ const Room = ({ room }: RoomProp) => {
       >
         <View style={styles.infoRoom}>
           <Ionicons name="person" size={20} color={theme.colors.secondary} />
-          <TextComponent text={`${room.maxPeople}`} />
+          <TextComponent text={`${room.max_people}`} />
         </View>
         <View style={styles.infoRoom}>
           <Ionicons

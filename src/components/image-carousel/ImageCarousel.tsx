@@ -74,22 +74,30 @@ const ImageCarousel = ({ images }: ImageCarouselProp) => {
           }
         }}
       />
-      <TouchableOpacity
-        style={[styles.arrow, styles.arrowLeft]}
-        onPress={handlePressLeft}
-      >
-        <AntDesign name="arrowleft" size={24} color={theme.colors.whiteLight} />
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[styles.arrow, styles.arrowRight]}
-        onPress={handlePressRight}
-      >
-        <AntDesign
-          name="arrowright"
-          size={24}
-          color={theme.colors.whiteLight}
-        />
-      </TouchableOpacity>
+      {images.length > 1 && (
+        <TouchableOpacity
+          style={[styles.arrow, styles.arrowLeft]}
+          onPress={handlePressLeft}
+        >
+          <AntDesign
+            name="arrowleft"
+            size={24}
+            color={theme.colors.whiteLight}
+          />
+        </TouchableOpacity>
+      )}
+      {images.length > 1 && (
+        <TouchableOpacity
+          style={[styles.arrow, styles.arrowRight]}
+          onPress={handlePressRight}
+        >
+          <AntDesign
+            name="arrowright"
+            size={24}
+            color={theme.colors.whiteLight}
+          />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

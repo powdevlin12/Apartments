@@ -1,2 +1,3 @@
-import { GET_ALL_TYPE_ROOM } from "./typeRoom.keySwr";
-export { GET_ALL_TYPE_ROOM };
+export * from "./typeRoom.keySwr";
+
+export * from "./apartment.keySwr";

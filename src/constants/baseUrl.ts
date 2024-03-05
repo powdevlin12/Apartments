@@ -5,3 +5,4 @@ export const BASE_URL =
     : "http://localhost:1203";
 
 export const BASE_URL_TYPE_APARTMENT = `${BASE_URL}/type-apartments`;
+export const BASE_URL_APARTMENT = `${BASE_URL}/apartments`;

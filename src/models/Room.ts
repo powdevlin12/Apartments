@@ -1,14 +1,18 @@
 import IService from "./Service";
+import TypeRoom from "./TypeRoom";
+import { IUtilities } from "./Utilities";
 
 interface IRoom {
-  image: string[];
+  _id: string;
+  images: string[];
   name: string;
   price: number;
   bed: number;
-  maxPeople: number;
-  status?: "free" | "busy";
-  service: IService[];
-  utilities?: string[];
+  max_people: number;
+  status: "free" | "busy";
+  service?: IService[];
+  utilities?: IUtilities[];
+  typeApartment: TypeRoom[];
 }
 
 export default IRoom;
