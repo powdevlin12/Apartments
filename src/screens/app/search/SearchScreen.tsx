@@ -8,6 +8,7 @@ import ListRoom from "./components/ListRoom";
 import { useGet } from "@/hooks/helpers/useGet";
 import { GET_ALL_TYPE_ROOM } from "@/constants/keySwr";
 import { typeApartmentService } from "@/services";
+import { capitalizeFirstLetter } from "@/utils";
 
 const listRooms: IRoom[] = [
   {
@@ -53,13 +54,9 @@ const SearchScreen = () => {
 
   const [activeType, setActiveType] = useState<string>("");
 
-  if (isLoading) {
-    return null;
-  }
-
   useEffect(() => {
     if (listTypeRoom) {
-      setActiveType(listTypeRoom[0].name);
+      setActiveType(capitalizeFirstLetter(listTypeRoom[0].name));
     }
   }, [listTypeRoom]);
 
@@ -70,6 +67,7 @@ const SearchScreen = () => {
           listTypeRoom={listTypeRoom}
           activeType={activeType}
           setActiveType={setActiveType}
+          isLoading={isLoading}
         />
       </View>
       <SpaceComponent height={theme.size[3]} />
