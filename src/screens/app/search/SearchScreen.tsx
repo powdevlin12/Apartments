@@ -18,8 +18,7 @@ const SearchScreen = () => {
     IRoom[]
   >(GET_ALL_APARTMENT, apartmentsService.getAll);
 
-  const [activeType, setActiveType] = useState<string>("all");
-  console.log("🚀 ~ SearchScreen ~ activeType:", activeType);
+  const [activeType, setActiveType] = useState<string>("All");
 
   return (
     <Container>

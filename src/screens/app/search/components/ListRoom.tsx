@@ -6,6 +6,7 @@ import theme from "@/constants/theme";
 import { SpaceComponent } from "@/components/layout";
 import Skeleton from "@/components/skeleton/Skeleton";
 import { HEIGHT, WIDTH } from "@/constants/dimemsion";
+import { NotData } from "@/components/not-data";
 
 interface ListRoomProps {
   listRooms: IRoom[] | undefined;
@@ -13,7 +14,6 @@ interface ListRoomProps {
 }
 
 const ListRoom = ({ listRooms, isLoading }: ListRoomProps) => {
-  console.log("🚀 ~ ListRoom ~ listRooms:", listRooms);
   const renderItem: ListRenderItem<IRoom> = useCallback(
     ({ item }) => (
       <View style={{ marginBottom: theme.size[4] }}>
@@ -55,6 +55,9 @@ const ListRoom = ({ listRooms, isLoading }: ListRoomProps) => {
         extraData={listRooms}
         showsVerticalScrollIndicator={false}
         ListFooterComponent={<SpaceComponent height={theme.size[5]} />}
+        ListEmptyComponent={
+          <NotData content="This type doesn't have any rooms yet" />
+        }
       />
     </View>
   );
