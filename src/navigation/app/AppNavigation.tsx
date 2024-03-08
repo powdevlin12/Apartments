@@ -1,12 +1,12 @@
+import { BadgeNavigation } from "@/components/badge";
+import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { StyleProp, StyleSheet, TextStyle } from "react-native";
+import { StyleSheet } from "react-native";
+import theme from "../../constants/theme";
 import { AccountScreen } from "../../screens/app/account";
 import { SavedScreen } from "../../screens/app/saved";
 import { SearchScreen } from "../../screens/app/search";
-import { AntDesign, FontAwesome } from "@expo/vector-icons";
-import theme from "../../constants/theme";
-import { TextComponent } from "../../components/text";
 
 type AppStackParamList = {
   Search: undefined;
@@ -30,16 +30,12 @@ const AppNavigation = () => {
         component={SearchScreen}
         options={{
           headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <FontAwesome name="search" size={24} color={colorIcon(focused)} />
-          ),
-          // tabBarLabel: ({ focused }) => (
-          //   <TextComponent
-          //     text="Search"
-          //     color={focused ? theme.colors.primary : theme.colors.secondary}
-          //     size={theme.fontSize.note}
-          //   />
-          // ),
+          tabBarIcon: ({ focused }) =>
+            !focused ? (
+              <FontAwesome name="search" size={24} color={colorIcon(focused)} />
+            ) : (
+              <BadgeNavigation name="Search" />
+            ),
           tabBarLabel: () => null,
         }}
       />
@@ -48,20 +44,16 @@ const AppNavigation = () => {
         component={SavedScreen}
         options={{
           headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <AntDesign
-              name={focused ? "heart" : "hearto"}
-              size={24}
-              color={colorIcon(focused)}
-            />
-          ),
-          // tabBarLabel: ({ focused }) => (
-          //   <TextComponent
-          //     text="Saved"
-          //     color={focused ? theme.colors.primary : theme.colors.secondary}
-          //     size={theme.fontSize.note}
-          //   />
-          // ),
+          tabBarIcon: ({ focused }) =>
+            !focused ? (
+              <AntDesign
+                name={focused ? "heart" : "hearto"}
+                size={24}
+                color={colorIcon(focused)}
+              />
+            ) : (
+              <BadgeNavigation name="Save" />
+            ),
           tabBarLabel: () => null,
         }}
       />
@@ -70,20 +62,16 @@ const AppNavigation = () => {
         component={AccountScreen}
         options={{
           headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <FontAwesome
-              name={focused ? "user-circle" : "user-circle-o"}
-              size={24}
-              color={colorIcon(focused)}
-            />
-          ),
-          // tabBarLabel: ({ focused }) => (
-          //   <TextComponent
-          //     text="Account"
-          //     color={focused ? theme.colors.primary : theme.colors.secondary}
-          //     size={theme.fontSize.note}
-          //   />
-          // ),
+          tabBarIcon: ({ focused }) =>
+            !focused ? (
+              <FontAwesome
+                name={focused ? "user-circle" : "user-circle-o"}
+                size={24}
+                color={colorIcon(focused)}
+              />
+            ) : (
+              <BadgeNavigation name="Account" />
+            ),
           tabBarLabel: () => null,
         }}
       />
