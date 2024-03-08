@@ -17,6 +17,7 @@ type AppStackParamList = {
 const Tab = createBottomTabNavigator<AppStackParamList>();
 const colorIcon = (focused: boolean) =>
   focused ? theme.colors.primary : theme.colors.secondary;
+
 const tabBarLabelStyle = {
   fontSize: theme.fontSize.note,
   fontFamily: theme.fontFamilies.PoppinsSemiBold,

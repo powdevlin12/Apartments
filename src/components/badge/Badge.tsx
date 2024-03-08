@@ -19,6 +19,7 @@ const Badge = ({ title, active, setActiveType }: BadgeProps) => {
       <TextComponent
         text={title}
         color={active ? theme.colors.textLight : theme.colors.primary}
+        size={theme.fontSize.paragraph}
         font={
           active
             ? theme.fontFamilies.PoppinsSemiBold

@@ -4,6 +4,8 @@ import { IRoom } from "../../../../models";
 import { Room } from "../../../../components/room";
 import theme from "@/constants/theme";
 import { SpaceComponent } from "@/components/layout";
+import Skeleton from "@/components/skeleton/Skeleton";
+import { HEIGHT, WIDTH } from "@/constants/dimemsion";
 
 interface ListRoomProps {
   listRooms: IRoom[] | undefined;
@@ -21,7 +23,22 @@ const ListRoom = ({ listRooms, isLoading }: ListRoomProps) => {
   );
 
   if (isLoading) {
-    return null;
+    return (
+      <FlatList
+        data={Array.from({ length: 6 }, (_, index) => index + 1)}
+        renderItem={() => (
+          <View>
+            <Skeleton
+              width={WIDTH - 2 * theme.size[4]}
+              height={HEIGHT * 0.25}
+              borderRadius={theme.border.medium}
+            />
+            <SpaceComponent height={theme.size[4]} />
+          </View>
+        )}
+        showsVerticalScrollIndicator={false}
+      />
+    );
   }
 
   return (

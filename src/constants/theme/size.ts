@@ -5,11 +5,11 @@ const border = {
   large: 24,
 };
 const fontSize = {
-  note: 12,
-  paragraph: 14,
-  paragraphLarge: 16,
-  tilte: 18,
-  titleLarge: 24,
+  note: 10,
+  paragraph: 12,
+  paragraphLarge: 14,
+  tilte: 15,
+  titleLarge: 28,
 };
 
 export { size, border, fontSize };

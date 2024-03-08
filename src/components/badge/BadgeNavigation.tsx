@@ -13,7 +13,7 @@ const BadgeNavigation = ({ name }: BadgeNavigationProps) => {
       <TextComponent
         text={name}
         color={theme.colors.primary}
-        size={theme.fontSize.note}
+        size={theme.fontSize.paragraph}
       />
       <View style={styles.square} />
     </View>
