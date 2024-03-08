@@ -49,23 +49,32 @@ const Room = ({ room, index }: RoomProp) => {
         />
       </RowComponent>
       <RowComponent
-        justifyContent="flex-start"
-        styles={{ columnGap: theme.size[3] }}
+        justifyContent="space-between"
+        styles={{ columnGap: theme.size[3], marginHorizontal: theme.size[3] }}
       >
-        <View style={styles.infoRoom}>
-          <Ionicons name="person" size={14} color={theme.colors.secondary} />
-          <TextComponent
-            text={`${room.max_people}`}
-            size={theme.fontSize.note}
-          />
-        </View>
-        <View style={styles.infoRoom}>
+        <RowComponent justifyContent="center">
+          <View style={styles.infoRoom}>
+            <Ionicons name="person" size={14} color={theme.colors.secondary} />
+            <TextComponent
+              text={`${room.max_people}`}
+              size={theme.fontSize.note}
+            />
+          </View>
+          <View style={styles.infoRoom}>
+            <Ionicons
+              name="bed-outline"
+              size={14}
+              color={theme.colors.secondary}
+            />
+            <TextComponent text={`${room.bed}`} size={theme.fontSize.note} />
+          </View>
+        </RowComponent>
+        <View>
           <Ionicons
-            name="bed-outline"
-            size={14}
+            name="heart-outline"
+            size={20}
             color={theme.colors.secondary}
           />
-          <TextComponent text={`${room.bed}`} size={theme.fontSize.note} />
         </View>
       </RowComponent>
     </Animated.View>
@@ -97,6 +106,5 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.whiteLight,
     paddingVertical: theme.size[1],
     paddingHorizontal: theme.size[3],
-    marginHorizontal: theme.size[3],
   },
 });
