@@ -1,12 +1,13 @@
 import { Ionicons } from "@expo/vector-icons";
-import React from "react";
-import { StyleSheet, View } from "react-native";
+import React, { useEffect } from "react";
+import { Platform, StyleSheet, View } from "react-native";
 import theme from "../../constants/theme";
 import { IRoom } from "../../models";
 import { ImageCarousel } from "../image-carousel";
 import { RowComponent } from "../layout";
 import { TextComponent } from "../text";
 import TitleComponent from "../text/TitleComponent";
+import { globalStyle } from "@/styles/global.styles";
 
 interface RoomProp {
   room: IRoom;
@@ -14,7 +15,13 @@ interface RoomProp {
 
 const Room = ({ room }: RoomProp) => {
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        globalStyle.androidShadow,
+        globalStyle.boxShadow,
+      ]}
+    >
       <View style={styles.imageCarouselArea}>
         <ImageCarousel
           images={
@@ -27,11 +34,15 @@ const Room = ({ room }: RoomProp) => {
         />
       </View>
       <RowComponent justifyContent="space-between" styles={styles.roomInfoArea}>
-        <TitleComponent text={room.name} />
+        <TitleComponent
+          text={room.name}
+          font={theme.fontFamilies.Poppins}
+          size={theme.fontSize.paragraph}
+        />
         <TitleComponent
           text={`${room.price}đ/giờ`}
           color={theme.colors.third}
-          size={theme.fontSize.paragraphLarge}
+          size={theme.fontSize.paragraph}
         />
       </RowComponent>
       <RowComponent
@@ -39,16 +50,19 @@ const Room = ({ room }: RoomProp) => {
         styles={{ columnGap: theme.size[3] }}
       >
         <View style={styles.infoRoom}>
-          <Ionicons name="person" size={20} color={theme.colors.secondary} />
-          <TextComponent text={`${room.max_people}`} />
+          <Ionicons name="person" size={14} color={theme.colors.secondary} />
+          <TextComponent
+            text={`${room.max_people}`}
+            size={theme.fontSize.note}
+          />
         </View>
         <View style={styles.infoRoom}>
           <Ionicons
             name="bed-outline"
-            size={20}
+            size={14}
             color={theme.colors.secondary}
           />
-          <TextComponent text={`${room.bed}`} />
+          <TextComponent text={`${room.bed}`} size={theme.fontSize.note} />
         </View>
       </RowComponent>
     </View>

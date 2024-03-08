@@ -3,6 +3,7 @@ import { FlatList, ListRenderItem, StyleSheet, View } from "react-native";
 import { IRoom } from "../../../../models";
 import { Room } from "../../../../components/room";
 import theme from "@/constants/theme";
+import { SpaceComponent } from "@/components/layout";
 
 interface ListRoomProps {
   listRooms: IRoom[] | undefined;
@@ -30,10 +31,12 @@ const ListRoom = ({ listRooms, isLoading }: ListRoomProps) => {
         renderItem={renderItem}
         style={{
           gap: theme.size[2],
+          marginTop: theme.size[2],
         }}
         keyExtractor={(item) => item.name}
         extraData={listRooms}
         showsVerticalScrollIndicator={false}
+        ListFooterComponent={<SpaceComponent height={theme.size[5]} />}
       />
     </View>
   );

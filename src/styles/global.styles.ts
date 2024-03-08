@@ -25,22 +25,32 @@ export const globalStyle = StyleSheet.create({
   },
 
   inputContainer: {
-    backgroundColor: theme.colors.gray,
+    backgroundColor: theme.colors.secondary,
     borderRadius: border.medium,
     paddingHorizontal: Platform.OS === "android" ? 12 : 14,
     paddingVertical: Platform.OS === "android" ? 12 : 14,
   },
-
   tag: {
     paddingHorizontal: size[4],
     paddingVertical: size[3],
     borderRadius: border.large,
-    backgroundColor: theme.colors.blue,
+    backgroundColor: theme.colors.primary,
   },
-
   card: {
     borderRadius: theme.border.medium,
     flex: 1,
     padding: 12,
+  },
+  boxShadow: {
+    shadowColor: "#333333",
+    shadowOffset: {
+      width: 4,
+      height: 4,
+    },
+    shadowOpacity: 0.4,
+    shadowRadius: theme.border.medium,
+  },
+  androidShadow: {
+    elevation: 3,
   },
 });

@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import theme from "../../constants/theme";
 import { TextComponent } from "../text";
+import { fontFamilies } from "../../constants/theme/fontFamilies";
 
 interface BadgeProps {
   title: string;
@@ -18,6 +19,11 @@ const Badge = ({ title, active, setActiveType }: BadgeProps) => {
       <TextComponent
         text={title}
         color={active ? theme.colors.textLight : theme.colors.primary}
+        font={
+          active
+            ? theme.fontFamilies.PoppinsSemiBold
+            : theme.fontFamilies.Poppins
+        }
       />
     </TouchableOpacity>
   );

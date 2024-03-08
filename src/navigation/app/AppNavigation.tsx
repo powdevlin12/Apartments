@@ -33,13 +33,14 @@ const AppNavigation = () => {
           tabBarIcon: ({ focused }) => (
             <FontAwesome name="search" size={24} color={colorIcon(focused)} />
           ),
-          tabBarLabel: ({ focused }) => (
-            <TextComponent
-              text="Search"
-              color={focused ? theme.colors.primary : theme.colors.secondary}
-              size={theme.fontSize.note}
-            />
-          ),
+          // tabBarLabel: ({ focused }) => (
+          //   <TextComponent
+          //     text="Search"
+          //     color={focused ? theme.colors.primary : theme.colors.secondary}
+          //     size={theme.fontSize.note}
+          //   />
+          // ),
+          tabBarLabel: () => null,
         }}
       />
       <Tab.Screen
@@ -54,13 +55,14 @@ const AppNavigation = () => {
               color={colorIcon(focused)}
             />
           ),
-          tabBarLabel: ({ focused }) => (
-            <TextComponent
-              text="Saved"
-              color={focused ? theme.colors.primary : theme.colors.secondary}
-              size={theme.fontSize.note}
-            />
-          ),
+          // tabBarLabel: ({ focused }) => (
+          //   <TextComponent
+          //     text="Saved"
+          //     color={focused ? theme.colors.primary : theme.colors.secondary}
+          //     size={theme.fontSize.note}
+          //   />
+          // ),
+          tabBarLabel: () => null,
         }}
       />
       <Tab.Screen
@@ -75,13 +77,14 @@ const AppNavigation = () => {
               color={colorIcon(focused)}
             />
           ),
-          tabBarLabel: ({ focused }) => (
-            <TextComponent
-              text="Account"
-              color={focused ? theme.colors.primary : theme.colors.secondary}
-              size={theme.fontSize.note}
-            />
-          ),
+          // tabBarLabel: ({ focused }) => (
+          //   <TextComponent
+          //     text="Account"
+          //     color={focused ? theme.colors.primary : theme.colors.secondary}
+          //     size={theme.fontSize.note}
+          //   />
+          // ),
+          tabBarLabel: () => null,
         }}
       />
     </Tab.Navigator>

@@ -23,7 +23,7 @@ export default Container;
 const styles = StyleSheet.create({
   containerChilden: {
     marginHorizontal: theme.size[4],
-    marginTop: theme.size[2],
+    marginTop: theme.size[3],
     flex: 1,
   },
 });
