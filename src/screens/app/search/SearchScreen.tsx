@@ -42,6 +42,7 @@ const SearchScreen = () => {
                 )
           }
           isLoading={isLoadingApartment}
+          activeType={activeType}
         />
       </View>
     </Container>

@@ -8,19 +8,22 @@ import { RowComponent } from "../layout";
 import { TextComponent } from "../text";
 import TitleComponent from "../text/TitleComponent";
 import { globalStyle } from "@/styles/global.styles";
+import Animated, { BounceInRight, FadeInLeft } from "react-native-reanimated";
 
 interface RoomProp {
   room: IRoom;
+  index: number;
 }
 
-const Room = ({ room }: RoomProp) => {
+const Room = ({ room, index }: RoomProp) => {
   return (
-    <View
+    <Animated.View
       style={[
         styles.container,
         globalStyle.androidShadow,
         globalStyle.boxShadow,
       ]}
+      entering={BounceInRight.duration(600).delay(100 * index)}
     >
       <View style={styles.imageCarouselArea}>
         <ImageCarousel
@@ -65,7 +68,7 @@ const Room = ({ room }: RoomProp) => {
           <TextComponent text={`${room.bed}`} size={theme.fontSize.note} />
         </View>
       </RowComponent>
-    </View>
+    </Animated.View>
   );
 };
 

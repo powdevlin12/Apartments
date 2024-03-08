@@ -11,13 +11,14 @@ import { NotData } from "@/components/not-data";
 interface ListRoomProps {
   listRooms: IRoom[] | undefined;
   isLoading: boolean;
+  activeType: string;
 }
 
-const ListRoom = ({ listRooms, isLoading }: ListRoomProps) => {
+const ListRoom = ({ listRooms, isLoading, activeType }: ListRoomProps) => {
   const renderItem: ListRenderItem<IRoom> = useCallback(
-    ({ item }) => (
+    ({ item, index }) => (
       <View style={{ marginBottom: theme.size[4] }}>
-        <Room room={item} />
+        <Room room={item} index={index} />
       </View>
     ),
     []
@@ -38,6 +39,7 @@ const ListRoom = ({ listRooms, isLoading }: ListRoomProps) => {
           </View>
         )}
         showsVerticalScrollIndicator={false}
+        key={activeType}
       />
     );
   }
