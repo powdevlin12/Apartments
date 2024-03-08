@@ -13,10 +13,11 @@ interface ListRoomProps {
 }
 
 const ListRoom = ({ listRooms, isLoading }: ListRoomProps) => {
+  console.log("🚀 ~ ListRoom ~ listRooms:", listRooms);
   const renderItem: ListRenderItem<IRoom> = useCallback(
     ({ item }) => (
       <View style={{ marginBottom: theme.size[4] }}>
-        <Room room={item as IRoom} />
+        <Room room={item} />
       </View>
     ),
     []

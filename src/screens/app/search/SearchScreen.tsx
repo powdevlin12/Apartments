@@ -1,14 +1,13 @@
 import { Container, SpaceComponent } from "@/components/layout";
-import { IRoom, TypeRoom } from "@/models";
-import React, { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
-import ListTypeRoom from "./components/ListTypeRoom";
-import theme from "@/constants/theme";
-import ListRoom from "./components/ListRoom";
-import { useGet } from "@/hooks/helpers/useGet";
-import { apartmentsService, typeApartmentService } from "@/services";
-import { capitalizeFirstLetter } from "@/utils";
 import { GET_ALL_APARTMENT, GET_ALL_TYPE_ROOM } from "@/constants/keySwr";
+import theme from "@/constants/theme";
+import { useGet } from "@/hooks/helpers/useGet";
+import { IRoom, TypeRoom } from "@/models";
+import { apartmentsService, typeApartmentService } from "@/services";
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import ListRoom from "./components/ListRoom";
+import ListTypeRoom from "./components/ListTypeRoom";
 
 const SearchScreen = () => {
   const { data: listTypeRoom, isLoading: isLoadingTypeRoom } = useGet<
@@ -19,13 +18,8 @@ const SearchScreen = () => {
     IRoom[]
   >(GET_ALL_APARTMENT, apartmentsService.getAll);
 
-  const [activeType, setActiveType] = useState<string>("");
-
-  useEffect(() => {
-    if (listTypeRoom) {
-      setActiveType(capitalizeFirstLetter(listTypeRoom[0].name));
-    }
-  }, [listTypeRoom]);
+  const [activeType, setActiveType] = useState<string>("all");
+  console.log("🚀 ~ SearchScreen ~ activeType:", activeType);
 
   return (
     <Container>
@@ -39,7 +33,17 @@ const SearchScreen = () => {
       </View>
       <SpaceComponent height={theme.size[3]} />
       <View style={styles.roomsArea}>
-        <ListRoom listRooms={listApartments} isLoading={isLoadingApartment} />
+        <ListRoom
+          listRooms={
+            activeType === "All"
+              ? listApartments
+              : listApartments?.filter(
+                  (apartment) =>
+                    apartment.typeApartment[0].name === activeType.toLowerCase()
+                )
+          }
+          isLoading={isLoadingApartment}
+        />
       </View>
     </Container>
   );

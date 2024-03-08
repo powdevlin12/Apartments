@@ -51,7 +51,7 @@ const ListTypeRoom = ({
   return (
     <View style={styles.container}>
       <FlatList
-        data={listTypeRoom}
+        data={[{ id: "all", name: "All" }, ...(listTypeRoom as TypeRoom[])]}
         renderItem={renderItem}
         horizontal={true}
         style={{
