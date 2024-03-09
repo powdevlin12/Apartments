@@ -1,4 +1,4 @@
-import { DetailApartment } from "@/components/room";
+import { DetailApartment } from "@/screens/app/detail-apartment";
 import { SearchScreen } from "@/screens/app/search";
 import {
   TransitionPresets,
@@ -7,7 +7,9 @@ import {
 
 export type ApartmentParamList = {
   SearchScreen: undefined;
-  DetailApartment: undefined;
+  DetailApartment: {
+    apartment: string;
+  };
 };
 
 const ApartmemtStack = createStackNavigator<ApartmentParamList>();

@@ -9,7 +9,7 @@ const fontSize = {
   paragraph: 12,
   paragraphLarge: 14,
   tilte: 15,
-  titleLarge: 28,
+  titleLarge: 18,
 };
 
 export { size, border, fontSize };

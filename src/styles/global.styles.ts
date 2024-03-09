@@ -19,7 +19,12 @@ export const globalStyle = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
+  column: {
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1,
+  },
   section: {
     marginBottom: size[4],
   },

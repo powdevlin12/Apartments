@@ -31,7 +31,11 @@ const Room = ({ room, index }: RoomProp) => {
         globalStyle.boxShadow,
       ]}
       entering={BounceInRight.duration(600).delay(100 * index)}
-      onPress={() => navigation.navigate("DetailApartment")}
+      onPress={() =>
+        navigation.navigate("DetailApartment", {
+          apartment: JSON.stringify(room),
+        })
+      }
     >
       <View style={styles.imageCarouselArea}>
         <ImageCarousel

@@ -4,7 +4,8 @@ export const colors = {
   textLight: "#f6f6f6",
   primary: "#004ecc",
   secondary: "#494949",
-  third: "#fea676",
+  third: "#ff8c47",
+  thirdBlur: "#ffe2d4",
   white: "#ffffff",
   whiteLight: "#f4f4f4",
 };
