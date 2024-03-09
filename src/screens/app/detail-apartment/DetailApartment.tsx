@@ -18,6 +18,7 @@ import { StyleSheet, View } from "react-native";
 import { fontFamilies } from "../../../constants/theme/fontFamilies";
 import { Facillities } from "./components";
 import Utility from "./components/Utility";
+import { ImageCarousel } from "@/components/image-carousel";
 
 const space = theme.size[4];
 type DetailApartmentRouteProp = RouteProp<
@@ -44,6 +45,9 @@ const DetailApartment = () => {
 
   return (
     <Container>
+      <SectionComponent>
+        <ImageCarousel images={images} />
+      </SectionComponent>
       <SectionComponent>
         <TitleComponent text={name} size={theme.fontSize.titleLarge} />
         <TextComponent
@@ -80,11 +84,9 @@ const DetailApartment = () => {
           <RowComponent justifyContent="space-between">
             <ColumnComponent alignItems="flex-start">
               <Utility content={utilities[0].name} />
-              <Utility content={utilities[1].name} />
             </ColumnComponent>
             <ColumnComponent alignItems="flex-start">
               <Utility content={utilities[0].name} />
-              <Utility content={utilities[1].name} />
             </ColumnComponent>
           </RowComponent>
         </SectionComponent>

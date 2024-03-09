@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { AntDesign } from "@expo/vector-icons";
+import React, { useCallback, useRef, useState } from "react";
 import {
   FlatList,
   Image,
@@ -9,7 +10,6 @@ import {
 } from "react-native";
 import { HEIGHT, WIDTH } from "../../constants/dimemsion";
 import theme from "../../constants/theme";
-import { AntDesign } from "@expo/vector-icons";
 
 interface ImageCarouselProp {
   images: string[];
