@@ -6,10 +6,10 @@ import { StyleSheet } from "react-native";
 import theme from "../../constants/theme";
 import { AccountScreen } from "../../screens/app/account";
 import { SavedScreen } from "../../screens/app/saved";
-import { SearchScreen } from "../../screens/app/search";
+import { ApartmentNavigation } from "./apartment";
 
 type AppStackParamList = {
-  Search: undefined;
+  Apartment: undefined;
   Saved: undefined;
   Account: undefined;
 };
@@ -25,10 +25,10 @@ const tabBarLabelStyle = {
 
 const AppNavigation = () => {
   return (
-    <Tab.Navigator initialRouteName="Search">
+    <Tab.Navigator initialRouteName="Apartment">
       <Tab.Screen
-        name="Search"
-        component={SearchScreen}
+        name="Apartment"
+        component={ApartmentNavigation}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) =>

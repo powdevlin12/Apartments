@@ -1,0 +1,3 @@
+const usersApartmentService = {
+  create: async () => {},
+};

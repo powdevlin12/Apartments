@@ -1,29 +1,37 @@
+import { globalStyle } from "@/styles/global.styles";
 import { Ionicons } from "@expo/vector-icons";
-import React, { useEffect } from "react";
-import { Platform, StyleSheet, View } from "react-native";
+import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+import Animated, { BounceInRight } from "react-native-reanimated";
 import theme from "../../constants/theme";
 import { IRoom } from "../../models";
 import { ImageCarousel } from "../image-carousel";
 import { RowComponent } from "../layout";
 import { TextComponent } from "../text";
 import TitleComponent from "../text/TitleComponent";
-import { globalStyle } from "@/styles/global.styles";
-import Animated, { BounceInRight, FadeInLeft } from "react-native-reanimated";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { ApartmentParamList } from "@/navigation/app/apartment/apartment.navigation";
 
 interface RoomProp {
   room: IRoom;
   index: number;
 }
 
+type RoomNavigationProps = NavigationProp<ApartmentParamList, "SearchScreen">;
+const AnimatedTouchableOpacity =
+  Animated.createAnimatedComponent(TouchableOpacity);
+
 const Room = ({ room, index }: RoomProp) => {
+  const navigation = useNavigation<RoomNavigationProps>();
   return (
-    <Animated.View
+    <AnimatedTouchableOpacity
       style={[
         styles.container,
         globalStyle.androidShadow,
         globalStyle.boxShadow,
       ]}
       entering={BounceInRight.duration(600).delay(100 * index)}
+      onPress={() => navigation.navigate("DetailApartment")}
     >
       <View style={styles.imageCarouselArea}>
         <ImageCarousel
@@ -77,7 +85,7 @@ const Room = ({ room, index }: RoomProp) => {
           />
         </View>
       </RowComponent>
-    </Animated.View>
+    </AnimatedTouchableOpacity>
   );
 };
 
