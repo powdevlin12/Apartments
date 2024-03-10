@@ -3,6 +3,8 @@ import { StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
 import AppNavigation from "./src/navigation/app/AppNavigation";
 import "react-native-gesture-handler";
+import { Provider } from "react-redux";
+import store from "@/store";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -16,9 +18,11 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <AppNavigation />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <AppNavigation />
+      </NavigationContainer>
+    </Provider>
   );
 }
 
