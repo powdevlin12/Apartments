@@ -18,24 +18,17 @@ interface RoomProp {
 }
 
 type RoomNavigationProps = NavigationProp<ApartmentParamList, "SearchScreen">;
-const AnimatedTouchableOpacity =
-  Animated.createAnimatedComponent(TouchableOpacity);
 
 const Room = ({ room, index }: RoomProp) => {
   const navigation = useNavigation<RoomNavigationProps>();
   return (
-    <AnimatedTouchableOpacity
+    <Animated.View
       style={[
         styles.container,
         globalStyle.androidShadow,
         globalStyle.boxShadow,
       ]}
       entering={BounceInRight.duration(600).delay(100 * index)}
-      onPress={() =>
-        navigation.navigate("DetailApartment", {
-          apartment: JSON.stringify(room),
-        })
-      }
     >
       <View style={styles.imageCarouselArea}>
         <ImageCarousel
@@ -48,7 +41,15 @@ const Room = ({ room, index }: RoomProp) => {
           }
         />
       </View>
-      <RowComponent justifyContent="space-between" styles={styles.roomInfoArea}>
+      <RowComponent
+        justifyContent="space-between"
+        styles={styles.roomInfoArea}
+        onPress={() =>
+          navigation.navigate("DetailApartment", {
+            apartment: JSON.stringify(room),
+          })
+        }
+      >
         <TitleComponent
           text={room.name}
           font={theme.fontFamilies.Poppins}
@@ -89,7 +90,7 @@ const Room = ({ room, index }: RoomProp) => {
           />
         </View>
       </RowComponent>
-    </AnimatedTouchableOpacity>
+    </Animated.View>
   );
 };
 
